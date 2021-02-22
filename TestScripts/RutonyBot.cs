@@ -96,7 +96,6 @@ namespace RutonyChat {
 
         public static ConsoleColor GetConsoleColor(this Color color) {
             if (color.GetSaturation() < 0.5) {
-                // we have a grayish color
                 switch ((int)(color.GetBrightness() * 3.5)) {
                     case 0: return ConsoleColor.Black;
                     case 1: return ConsoleColor.DarkGray;
@@ -106,7 +105,6 @@ namespace RutonyChat {
             }
             int hue = (int)Math.Round(color.GetHue() / 60, MidpointRounding.AwayFromZero);
             if (color.GetBrightness() < 0.4) {
-                // dark color
                 switch (hue) {
                     case 1: return ConsoleColor.DarkYellow;
                     case 2: return ConsoleColor.DarkGreen;
@@ -116,7 +114,6 @@ namespace RutonyChat {
                     default: return ConsoleColor.DarkRed;
                 }
             }
-            // bright color
             switch (hue) {
                 case 1: return ConsoleColor.Yellow;
                 case 2: return ConsoleColor.Green;

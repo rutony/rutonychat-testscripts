@@ -27,8 +27,6 @@ namespace RutonyChat {
         public static string dir_theme;
         public static string currentTheme;
 
-        public static int port = 8383;
-
         public static string lang = "";
         public static string langName = "";
 
@@ -50,26 +48,73 @@ namespace RutonyChat {
             itunes, spotify, lastfm,
             saibot, babajkov,
             donatepay, gamewisp, gamingforgood,
-            youtube_moderator
+            youtube_moderator,
+            smashcast,
+            termimator,
+            facebook,
+            bits25000, bits50000, bits75000, bits200000, bits300000, bits400000, bits500000, bits600000, bits700000, bits800000, bits900000, bits1000000,
+            twitch_partner,
+            panda,
+            youtube_subscriber,
+            looch,
+            hypesx,
+            twitch_subscriber36, twitch_subscriber48, twitch_subscriber60, twitch_subscriber72, twitch_subscriber84, twitch_subscriber96, twitch_vip,
+            yevhenii24, twitch_subscriber9,
+            twitch_subscriber18, twitch_subscriber90, twitch_subscriber66, twitch_subscriber54, twitch_subscriber42, twitch_subscriber30, twitch_subscriber78,
+            donatestream, twitch_founder,
+            destream,
+            cloudtips,
+            trovo, wasd, dlive, theta,
+            steam,
+            discord,
+            reps
         };
-        
+
         public enum TypeAlerts {
             [System.ComponentModel.Description("None")]
             none,
-            [System.ComponentModel.Description("Follower")]
+            [System.ComponentModel.Description("Free subscriber")]
             follower,
-            [System.ComponentModel.Description("Any subscriber")]
+            [System.ComponentModel.Description("Any paid subscriber")]
             any_subscriber,
-            [System.ComponentModel.Description("New subscriber")]
+            [System.ComponentModel.Description("New paid subscriber")]
             new_subscriber,
-            [System.ComponentModel.Description("Resub")]
+            [System.ComponentModel.Description("Paid resub")]
             resub,
             [System.ComponentModel.Description("Donate")]
             donate,
             [System.ComponentModel.Description("Host")]
-            host
+            host,
+            [System.ComponentModel.Description("New viewer")]
+            new_viewer,
+            [System.ComponentModel.Description("Rank promote")]
+            rank_promote,
+            [System.ComponentModel.Description("New like")]
+            like,
+            [System.ComponentModel.Description("New current track")]
+            new_current_track,
+            [System.ComponentModel.Description("Repost")]
+            repost,
+            [System.ComponentModel.Description("Gift")]
+            gift,
+            [System.ComponentModel.Description("Request")]
+            request,
+            [System.ComponentModel.Description("Raid")]
+            raid
         };
 
+        public enum TypeSubscriberPlan {
+            [System.ComponentModel.Description("-")]
+            any = 0,
+            [System.ComponentModel.Description("Prime")]
+            twitch_prime = 1,
+            [System.ComponentModel.Description("Tear 1")]
+            twitch_tear1 = 2,
+            [System.ComponentModel.Description("Tear 2")]
+            twitch_tear2 = 3,
+            [System.ComponentModel.Description("Tear 3")]
+            twitch_tear3 = 4,
+        }
 
         public static string GetTempFilePathWithExtension(string path, string extension) {
             var fileName = Guid.NewGuid().ToString() + extension;
