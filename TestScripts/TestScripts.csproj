@@ -51,12 +51,6 @@
   <ItemGroup>
     <Compile Include="ChatDB.cs" />
     <Compile Include="ChatServer.cs" />
-    <Compile Include="FormControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormControl.Designer.cs">
-      <DependentUpon>FormControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="LabelBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramProps.cs" />
@@ -71,11 +65,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FormControl.resx">
-      <DependentUpon>FormControl.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
