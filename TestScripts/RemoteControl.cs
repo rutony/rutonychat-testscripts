@@ -9,7 +9,7 @@ namespace RutonyChat {
     public static class RemoteControl {
         public static bool isActive = false;
 
-        public enum TypeAlert { Follower, Subscriber, Donate, Text, HotKey, Host };
+        public enum TypeAlert { Follower, Subscriber, Donate, Text, HotKey, Host, NewViewer, RankPromote, Like, Repost, Gift, Raid, Request, TwitchPoints };
         public enum TypeCondMessage { chance, qty };
 
         [Flags]
@@ -49,6 +49,10 @@ namespace RutonyChat {
             public ModifierKeys alt1 = ModifierKeys.None;
             public ModifierKeys alt2 = ModifierKeys.None;
             public System.Windows.Forms.Keys KeyHotKey = System.Windows.Forms.Keys.None;
+
+            // Twitch Points
+            public bool isTwitchPoints = false;
+            public int TwitchPointsValue = 0;
 
             // ==== result ====
             // key
@@ -94,7 +98,22 @@ namespace RutonyChat {
 
         public static List<RemotePreset> ListPresets;
 
-        public static void CheckPresets(RemotePreset preset, string var_nickname = "", string var_text = "", float var_value = 0) {
-        }
+        public static void CheckPresets(RemotePreset preset, string var_nickname = "", string var_text = "", float var_value = 0) { }
+
+        public static void RunProgram(RemotePreset preset, string var_nickname = "", string var_text = "", float var_value = 0, string var_donor = "") { }
+
+        public static void PressKey(RemotePreset preset) { }
+        public static void PlaySound(RemotePreset preset) { }
+
+        public static void ShowCustomAlert(RemotePreset preset, string var_nick, string var_donate = "", string var_text = "") { }
+
+        public static void UpdateCounter(int vnumber, int vvalue) { }
+
+        public static void RunTimerOper(RemotePreset preset) { }
+
+        public static void RunBotCommand(RemotePreset preset, string var_username, float var_value) { }
+
+        public static void RunScript(RemotePreset preset, string var_username, float var_value = 0) { }
+     
     }
 }
