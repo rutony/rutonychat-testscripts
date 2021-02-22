@@ -109,10 +109,54 @@ namespace RutonyChat {
             Timer2,
             Timer3,
             Timer4,
-            Timer5
+            Timer5,
+
+            Viewers_Smashcast,
+
+            Youtube_Like,
+            Youtube_Dislike,
+
+            Viewers_Mixer,
+            Viewers_Wasd,
+            Viewers_Steam,
+            Viewers_Trovo
 
         }
 
+        public class ValueLabel {
+            public string Format;
+            public Dictionary<string, string> Values = new Dictionary<string, string>();
+        }
 
+        public class LabelClass {
+            public string Name;         // имя
+            public string Caption;      // описание
+            public string FileName;     // файл
+            public string Format;       // формат
+            public string BaseFormat;   // базовый формат
+            public LabelType Type;      // тип
+            public Dictionary<string, string> Params;
+            public List<string> ListSites;
+            public override string ToString() {
+                return "-- " + Caption;
+            }
+            public string GetParam(string param, string defvalue) {
+                string ret = defvalue;
+                try {
+                    ret = Params[param];
+                } catch {
+                    Params.Add(param, defvalue);
+                }
+                return ret;
+            }
+
+            public ValueLabel GetValue(string varSite = null) {
+
+                Dictionary<string, string> Values = new Dictionary<string, string>();
+
+                return new ValueLabel() { Format = Format, Values = Values };
+
+            }
+        }
     }
 }
