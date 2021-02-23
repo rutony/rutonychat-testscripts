@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace RutonyChat {
     public static class RemoteControl {
+
         public static bool isActive = false;
 
         public enum TypeAlert { Follower, Subscriber, Donate, Text, HotKey, Host, NewViewer, RankPromote, Like, Repost, Gift, Raid, Request, TwitchPoints };
