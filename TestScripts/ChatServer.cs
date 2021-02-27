@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace RutonyChat {
-    public static class ChatServer {
+    public class ChatServer {
         public static List<string> GetListViewers(ProgramProps.SiteEnum site)
         {
             return new List<string>();
