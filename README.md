@@ -8,7 +8,7 @@ https://github.com/rutony/rutonychat-testscripts/wiki
 https://vk.com/rutonychat
 
 Канал в дискорде:
-https://discord.gg/eQxaPqDz
+https://discord.gg/dBaQGqzuXj
 
 Группа в телеграмме:
 https://t.me/rutonychat
