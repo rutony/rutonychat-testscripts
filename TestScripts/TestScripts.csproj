@@ -82,6 +82,7 @@
     <Compile Include="RenameControl.cs" />
     <Compile Include="RutonyBot.cs" />
     <Compile Include="RutonyBotFunctions.cs" />
+    <Compile Include="RutonyChatFunctions.cs" />
     <Compile Include="Script.cs" />
     <Compile Include="TestMethods.cs" />
   </ItemGroup>
