@@ -8,12 +8,8 @@ using System.Threading.Tasks;
 namespace RutonyChat {
     public static class ProgramSettings {
 
-
         public static class general {
             public static string PrivateMessage = "";
-
-            public static string Theme = "default";
-            public static bool theme_workshop = false;
 
             public static bool ShowDiffOnline = false;
             public static int DiffOnlineUpdate = 5;
@@ -21,27 +17,40 @@ namespace RutonyChat {
             public static bool ShowRandomAlerts = false;
             public static bool ShowAlertsInChat = true;
             public static bool ShowDonate = true;
-            public static string FormatSumDonate = "G";
+            public static string DotateChatFormat = ""; // "$name " + ProgramLang.ChatDonateText + " $sum";
+            public static string DotateChatWithTextFormat = ""; // "$name " + ProgramLang.ChatDonateText + " $sum $text";
             public static bool ShowFollowers = true;
+            public static string FollowerChatFormat = ""; // "$name " + ProgramLang.ChatNowFollower;
             public static bool ShowSubscribers = true;
+            public static string SubscriberChatFormat = ""; // ProgramLang.ChatNowSubscriber;
+            public static string ReSubscriberChatFormat = ""; // ProgramLang.ChatNowReSubscriber;
             public static bool ShowHost = true;
+            public static string HostChatFormat = ""; // ProgramLang.ChatNowHost;
+            public static string HostChatFormatAutohost = ""; // ProgramLang.ChatNowHostAutohost;
             public static bool ShowRaids = true;
+            public static string RaidsChatFormat = ""; // ProgramLang.ChatNowRaid;
             public static bool ShowRequests = true;
+            public static string RequestsChatFormat = ""; // ProgramLang.ChatNowRequest;
             public static bool ShowNewViewer = false;
+            public static string NewViewerChatFormat = ""; // ProgramLang.ChatNowNewViewer;
             public static bool ShowRankPromote = false;
             public static string RankPromoteFormat = "$name get new rank $rank";
             public static bool ShowLikes = false;
+            public static string LikeChatFormat = ""; // ProgramLang.ChatNowLike;
             public static bool ShowRepost = false;
-            public static bool ShowGift = false;
+            public static string RepostChatFormat = ""; // ProgramLang.ChatRepost;
+            public static bool ShowGift = true;
+            public static string GiftChatFormat = ""; // ProgramLang.ChatGift;
 
             public static bool UseShowFavorites = true;
             public static bool UseIgnoreList = true;
             public static bool IgnoreDonateFromIgnoreList = true;
 
             public static bool UseCensorList = false;
+            public static string CensorText = ""; // ProgramLang.CensorText;
 
             // ranks
-            public static bool Ranks = true;
+            public static bool Ranks = false;
 
             public static bool RankCreditsForTime = true;
             public static int RankTimeForTransfer = 60;
@@ -74,11 +83,22 @@ namespace RutonyChat {
             public static bool AlwaysTop = true;
             public static bool DontCollapseBotLinks = false;
             public static string DontCollapseBotLinksNicknames = "rutonybot,moobot,NightBot";
+
+            public static string Theme = "default";
+            public static bool theme_workshop = false;
+            public static string ThemeOnStream = "default";
+            public static bool ThemeOnStreame_Workshop = false;
             public static bool SetHTMLBackColor = true;
             public static string HTMLBackColor = "#000";
             public static bool EffectSnow = false;
-            public static bool IgnoreAlertsQueue = false;
+            public static bool ThemeOnStream_SystemAlerts = false;
+            public static bool ThemeOnStream_AlertsInChat = false;
+            public static bool IgnoreAlertsQueue = true;
 
+            public static string MessageDeleted = ""; // ProgramLang.ChatMessageDeleted;
+            public static bool ChatInput = false;
+
+            public static string SelectedPollSites = "";
 
             public static string StatisticType = "0";
             public static string ZoomFactor = "0";
@@ -103,17 +123,23 @@ namespace RutonyChat {
             public static int SpeechRate = 0;
             public static bool SpeechRandomRate = false;
             public static int SpeechVolume = 100;
+            public static bool SpeechSimpleText = false;
             public static string SpeechPhrase = "$text";
             public static bool SpeechOnlyPrivate = false;
             public static bool SpeechOnlySub = false;
+            public static bool SpeechOnlySub_OnlyPrivate = false;
             public static string SpeechOnlySubContainsText = "";
             public static bool SpeechOnlyFavorite = false;
+            public static bool SpeechOnlyFavorite_OnlyPrivate = false;
             public static string SpeechOnlyFavoriteContainsText = "";
             public static bool SpeechForRank = false;
             public static int SpeechForRankEq = 0;
             public static int SpeechForRankPresetIndex = -1;
             public static bool SpeechOnlySpecialMessages = false;
+            public static bool SpeechOnlyTwitchRewards = false;
+            public static bool SpeechOnlyTwitchRewards_OnlyWithText = false;
             public static bool SpeechOnlyAdministrator = false;
+            public static bool SpeechOnlyAdministrator_OnlyPrivate = false;
             public static string SpeechOnlyAdministratorContainsText = "";
 
             public static bool GPUAcceleration = false;
@@ -123,45 +149,69 @@ namespace RutonyChat {
             public static int UpdateVersion = 0;
 
             public static bool WebDebug = false;
+            public static int OutputDevice = -1;
+        }
+
+        public static class Currency {
+            public static string BaseCurrencyUid = "";
+            public static string FormatSum = "G";
+            public static string FormatDonate = "$sum $currency";
+            public static bool Update = true;
+            public static DateTime LastUpdate = new DateTime(1, 1, 1, 0, 0, 0);
         }
 
         public static class songrequest {
-            public static bool Active = false;
 
-            public static int Volume = 50;
-            public static bool RequestsPerUserActive = false;
-            public static int RequestsPerUser = 1;
-            public static bool MaxRequestsActive = false;
-            public static int MaxRequests = 20;
-            public static bool SkipVotesActive = false;
-            public static int SkipVotes = 5;
+            public static int CurrentDevice = 0;
+
+            public static string Keywords = "!sr,!songrequest";
+            public static string Keywords_Success = ""; // ProgramLang.SR_Keywords_Success;
+            public static string Keywords_Error = ""; // ProgramLang.SR_Keywords_Error;
+
             public static bool OnlySubs = false;
-            public static bool OnlyRank = false;
-            public static int OnlyRankInd = -1;
-            public static int OnlyRankEq = 1;
-            public static bool RemoveCreditsActive = false;
-            public static int RemoveCredits = 5;
-            public static bool SkipForCreditsActive = false;
-            public static int SkipForCredits = 5;
-            public static bool SongMaxLengthActive = false;
-            public static DateTime SongMaxLength = new DateTime(1753, 1, 1, 0, 7, 0);
-            public static bool RatesActive = false;
-            public static int Rates = 80;
-            public static bool VideoPreviewsActive = false;
-            public static int VideoPreviews = 30000;
-            public static bool PauseWhileAlertOnPause = true;
-            public static bool ForceRequest = false;
-            public static int ForceRequestCredits = 5;
-            public static bool BackgroundImage = false;
-            public static string BackgroundImagePath = "";
 
-            public static string BotCommandRequestAdd = "!sr,!songrequest";
-            public static string BotCommandForceRequest = "!fr,!forcerequest";
-            public static string BotCommandRequestsList = "!sl,!srl,!requestlist";
-            public static string BotCommandRequestSkip = "!skip";
-            public static string BotCommandRequestForceSkip = "!fs,!forceskip";
-            public static string BotCommandRequestCurrentSong = "!cs,!song";
-            public static string BotCommandRequestRemoveRequest = "!rr,!removerequest";
+            public static bool OnlyRanks = false;
+            public static int OnlyRanksEq = 0;
+            public static int OnlyRanks_Rank = -1;
+            public static string OnlyRanks_Error = ""; // ProgramLang.SR_OnlyRanks_Error;
+
+            public static bool MaxRequests = false;
+            public static int MaxRequests_Value = 20;
+            public static string MaxRequests_Error = ""; // ProgramLang.SR_MaxRequest_Error;
+
+            public static bool RequestsPerUser = false;
+            public static int RequestsPerUser_Value = 1;
+            public static string RequestsPerUser_Error = ""; // ProgramLang.SR_RequestsPerUser_Error;
+
+            public static bool PauseWhileAlertOnPause = true;
+
+            public static bool RemoveCredits = false;
+            public static int RemoveCredits_Value = 5;
+            public static string RemoveCredits_Error = ""; // ProgramLang.SR_RemoveCredits_Error;
+
+            public static bool ForceRequest = false;
+            public static int ForceRequest_Value = 15;
+            public static string ForceRequest_Keywords = "!fr,!forcerequest";
+            public static string ForceRequest_Error = ""; // ProgramLang.SR_ForceRequest_Error;
+
+            public static bool VotesForSkip = false;
+            public static int VotesForSkip_Value = 5;
+            public static string VotesForSkip_Keywords = "!skip";
+            public static string VotesForSkip_Accept = ""; // ProgramLang.SR_VotesForSkip_Accept;
+            public static string VotesForSkip_Error = ""; // ProgramLang.SR_VotesForSkip_Error;
+
+            public static bool SkipForCredits = false;
+            public static int SkipForCredits_Value = 10;
+            public static string SkipForCredits_Keywords = "!fs,!forceskip";
+            public static string SkipForCredits_Error = ""; // ProgramLang.SR_SkipForCredits_Error;
+
+            public static bool SongMaxLength = false;
+            public static int SongMaxLength_Value = 210;
+            public static string SongMaxLength_Error = ""; // ProgramLang.SR_SongMaxLength_Error;
+
+            public static bool SongMaxRate = false;
+            public static int SongMaxRate_Value = 30;
+            public static string SongMaxRate_Error = ""; // ProgramLang.SR_SongMaxRate_Error;
 
         }
 
@@ -174,21 +224,21 @@ namespace RutonyChat {
             public static bool Active = false;
             public static string Channel = "";
             public static bool ColorNick = true;
-            public static bool TwitchSubs = true;
-            public static bool TwitchFollower = true;
-            public static bool TwitchHost = true;
+            public static bool TwitchSubs = false;
+            public static bool TwitchFollower = false;
+            public static bool TwitchHost = false;
             public static bool ShowMods = true;
             public static bool ShowPremiums = true;
             public static bool ShowTurbo = true;
             public static bool ShowFFZ = false;
-            public static bool ShowBits = true;
-            public static bool ShowHost = true;
-            public static bool ShowGift = true;
+            public static bool ShowBits = false;
+            public static bool ShowHost = false;
+            public static bool ShowGift = false;
             public static bool GiftTotal = false;
             public static bool ShowNewViewer = false;
-            public static bool ShowRaid = true;
+            public static bool ShowRaid = false;
 
-            public static bool SubscribersFromDB = false;
+            public static bool SubscribersFromDB = true;
 
             public static bool Donate = false;
 
@@ -201,6 +251,11 @@ namespace RutonyChat {
 
             public static string CustomServer = "";
             public static string Protocol = "irc";
+
+            public static bool TwitchPoints = false;
+
+            public static string TwitchPointsChatFormat = ""; // ProgramLang.TextTwitchPoints;
+            public static string TwitchPointsWTextChatFormat = ""; // ProgramLang.TextTwitchPointsWithText;
         }
 
         public static class sc2tv {
@@ -292,15 +347,21 @@ namespace RutonyChat {
             public static string Token = "";
             public static string TokenSecret = "";
             public static string RefreshToken = "";
-            public static string TypeConnect = "0"; // 0 - first, 1 - selected, 2 - url
+            public static string TypeConnect = "0"; // 0 - first, 1 - url
+
             public static DateTime DateTime;
-            public static string liveChatId = "";
-            public static string Id = "";
-            public static string title = "";
-            public static string YoutubeUrl = "";
+            public static string shortId = ""; // chat page id, for 1
+            public static string liveCha1tId = "";
+
+            public static string ListVideo_shortId = "";
+            public static string ListVideo_LiveChatId = "";
+            public static DateTime ListVideo_DateTime;
+            public static string ListVideo_Title = "";
+
             public static bool YoutubeFollower = false;
             public static bool YoutubeSubs = false;
             public static bool YoutubeDonate = false;
+
             public static bool ShowMods = true;
             public static bool BotActive = false;
             public static string BotToken = "";
@@ -340,6 +401,8 @@ namespace RutonyChat {
         public static class facebook {
             public static bool Active = false;
             public static string Channel = "";
+            public static string GroupId = "";
+            public static string GroupTitle = "";
             public static string Token = "";
             public static string AccessToken = "";
 
@@ -366,7 +429,18 @@ namespace RutonyChat {
         }
         public static class DonationAlerts {
             public static bool Active = false;
-            public static string ApiKey = "";
+            public static string Token = "";
+            public static string RefreshToken = "";
+            public static string APIKey = "Ybax9r2vJp0eb6AvvP2z";
+        }
+        public static class Discord {
+            public static bool Active = false;
+            public static string Token = "";
+            public static string RefreshToken = "";
+        }
+        public static class Donatty {
+            public static bool Active = false;
+            public static string Token = "";
         }
         public static class TwitchAlerts {
             public static bool Active = false;
@@ -386,6 +460,8 @@ namespace RutonyChat {
         }
         public static class spotify {
             public static bool Active = false;
+            public static string Token = "";
+            public static string RefreshToken = "";
         }
         public static class DonatePay {
             public static bool Active = false;
@@ -396,6 +472,10 @@ namespace RutonyChat {
             public static bool ActiveDonate = false;
             public static string AccessToken = "";
             public static string RefreshToken = "";
+        }
+        public static class CloudTips {
+            public static bool Active = false;
+            public static string Token = "";
         }
         public static class QIWI {
             public static bool Active = false;
@@ -427,8 +507,33 @@ namespace RutonyChat {
             public static bool Active = false;
             public static string Token = "";
         }
+        public static class trovo {
+            public static bool Active = false;
+            public static string Token = "";
+            public static string RefreshToken = "";
+            public static bool BotActive = false;
+            public static string BotToken = "";
+            public static string BotRefreshToken = "";
+            public static bool Followers = true;
+            public static bool Subscribers = true;
+            public static bool Raids = true;
+            public static bool NewViewers = false;
+            public static bool Gifts = true;
+        }
+        public static class wasd {
+            public static bool Active = false;
+            public static string Channel = "";
 
-        private static Dictionary<string, Dictionary<string, string>> defValuesDict = null;
+            public static bool ShowStickers = true;
+            public static int StickersSize = 1;
+        }
+        public static class steam {
+            public static bool Active = false;
+            public static string ChannelID = "";
+        }
+        public static class reps {
+            public static bool Active = false;
+        }
 
 
 
